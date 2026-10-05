@@ -1,372 +1,409 @@
-/* =========================
-   CENTURY CENTURY
-   ========================= */
+:root
+{
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    color-scheme: light;
+    -webkit-font-smoothing: antialiased;
+}
 
-* {
+*
+{
     box-sizing: border-box;
 }
 
-html,
-body {
+html
+{
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+
+body
+{
     margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
+    background: #fff;
+    color: #1d1d1f;
+    line-height: 1.65;
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-        "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-
-    background: #ffffff;
-    color: #111111;
-
-    min-height: 100vh;
-    overflow-x: hidden;
+main
+{
+    max-width: 960px;
+    margin: auto;
+    padding: 72px 32px 64px;
 }
 
-/* Hide normal site text */
-
-.site-header,
-.page-header,
-header,
-footer,
-.record-meta,
-.record-info,
-.record-title,
-.record-action,
-.play-label,
-.track-title {
-    display: none !important;
+button,
+input
+{
+    font: inherit;
 }
 
-
-/* =========================
-   RECORD AREA
-   ========================= */
-
-main {
-    width: 100%;
-    min-height: 100vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 60px;
-}
-
-.records,
-.record-grid,
-.sound-grid {
-    width: min(1100px, 100%);
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-
-    gap: clamp(45px, 7vw, 110px);
-}
-
-
-/* Remove all card appearance */
-
-.record-card {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 0;
-    margin: 0;
-
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-
+button
+{
     cursor: pointer;
-
-    -webkit-tap-highlight-color: transparent;
 }
 
+button:focus-visible,
+input:focus-visible
+{
+    outline: 3px solid #0071e3;
+    outline-offset: 5px;
+}
 
-/* =========================
-   VINYL
-   ========================= */
+h1
+{
+    font-size: clamp(44px, 7vw, 72px);
+    font-weight: 600;
+    letter-spacing: -0.055em;
+    line-height: 1.06;
+    margin: 0 0 28px;
+}
 
-.vinyl,
-.record,
-.record-disc {
-    position: relative;
+.sound-heading
+{
+    margin-bottom: 64px;
+}
 
+.records
+{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 72px;
+}
+
+.record
+{
+    display: block;
     width: 100%;
-    max-width: 300px;
-    aspect-ratio: 1 / 1;
+    padding: 24px;
+    border: 1px solid #e9e9ec;
+    border-radius: 24px;
+    background: #fafafa;
+    color: inherit;
+    text-align: left;
+    transition: background 220ms ease, border-color 220ms ease;
+}
 
+.record:hover
+{
+    background: #f5f5f7;
+    border-color: #d2d2d7;
+}
+
+.record:disabled
+{
+    cursor: wait;
+    opacity: 0.6;
+}
+
+.vinyl
+{
+    position: relative;
+    display: flex;
+    width: 100%;
+    aspect-ratio: 1;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 0 18%,
-            rgba(255, 255, 255, 0.04) 18.2%,
-            transparent 18.6%,
-            transparent 22%,
-            rgba(255, 255, 255, 0.035) 22.2%,
-            transparent 22.6%,
-            transparent 27%,
-            rgba(255, 255, 255, 0.03) 27.2%,
-            transparent 27.6%,
-            transparent 32%,
-            rgba(255, 255, 255, 0.03) 32.2%,
-            transparent 32.6%,
-            transparent 37%,
-            rgba(255, 255, 255, 0.025) 37.2%,
-            transparent 37.6%,
-            transparent 42%,
-            rgba(255, 255, 255, 0.025) 42.2%,
-            transparent 42.6%,
-            transparent 47%,
-            rgba(255, 255, 255, 0.02) 47.2%,
-            transparent 47.6%
-        ),
-        repeating-radial-gradient(
-            circle at center,
-            #181818 0px,
-            #181818 2px,
-            #242424 3px,
-            #151515 4px
-        );
+    background: repeating-radial-gradient(
+        circle at center,
+        #161618 0px,
+        #161618 2px,
+        #29292b 3px,
+        #101012 4px
+    );
 
-    box-shadow:
-        0 20px 45px rgba(0, 0, 0, 0.12);
+    border: 1px solid #303033;
+    box-shadow: 0 14px 30px #00000018;
 
     transition:
-        transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1),
-        box-shadow 450ms ease,
-        filter 450ms ease;
+        transform 400ms ease,
+        box-shadow 400ms ease;
 }
 
-
-/* Very subtle invitation to interact */
-
-.record-card:hover .vinyl,
-.record-card:hover .record,
-.record-card:hover .record-disc {
-    transform: scale(1.035) rotate(2deg);
-
-    box-shadow:
-        0 28px 60px rgba(0, 0, 0, 0.16);
-}
-
-
-/* Keep label above vinyl */
-
-.record-label,
-.vinyl-label {
+.vinyl::before
+{
+    content: "";
     position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    width: 35%;
-    aspect-ratio: 1 / 1;
-
+    inset: 0;
     border-radius: 50%;
 
+    background: conic-gradient(
+        from 30deg,
+        transparent,
+        #ffffff0e 50deg,
+        transparent 90deg,
+        transparent 180deg,
+        #ffffff12 230deg,
+        transparent 280deg
+    );
+}
+
+.record-label
+{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 
-    text-align: center;
+    width: 44%;
+    height: 44%;
 
-    z-index: 2;
-}
-
-
-/* Center hole */
-
-.record-label::after,
-.vinyl-label::after {
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    width: 7px;
-    height: 7px;
-
-    transform: translate(-50%, -50%);
-
-    background: #111;
+    padding: 10px 4px;
     border-radius: 50%;
+
+    background: var(--label);
+    color: #181818;
 }
 
+.record-label small
+{
+    font-size: 5px;
+    letter-spacing: 0.08em;
+}
 
-/* =========================
-   FULLSCREEN EXPERIENCE
-   ========================= */
+.record-label strong
+{
+    font-size: clamp(10px, 1.3vw, 14px);
+    text-align: center;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+}
 
-#experience {
+.record-label i
+{
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #161618;
+    border: 2px solid #ffffff55;
+}
+
+.record:hover .vinyl
+{
+    transform: translateY(-4px) rotate(-3deg);
+    box-shadow: 0 16px 28px #0000001a;
+}
+
+.record-info
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.record-info strong
+{
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.record-info > span
+{
+    font-size: 11px;
+    color: #86868b;
+    white-space: nowrap;
+}
+
+#status
+{
+    min-height: 24px;
+    margin-bottom: 32px;
+
+    font-size: 14px;
+    color: #6e6e73;
+}
+
+footer
+{
+    padding-top: 24px;
+
+    border-top: 1px solid #e5e5e7;
+
+    font-size: 12px;
+    color: #86868b;
+}
+
+body.listening
+{
+    overflow: hidden;
+}
+
+#experience
+{
     position: fixed;
     inset: 0;
 
-    width: 100%;
-    height: 100%;
-
-    background: #000;
-
-    z-index: 9999;
+    background: #050507;
 
     opacity: 0;
     visibility: hidden;
-    pointer-events: none;
 
     transition:
-        opacity 400ms ease,
-        visibility 400ms ease;
+        opacity 1s,
+        visibility 1s;
+
+    z-index: 10;
+
+    color: #fff;
+    color-scheme: dark;
 }
 
-#experience.active,
-#experience.is-active,
-#experience.open {
+#experience.open
+{
     opacity: 1;
     visibility: visible;
-    pointer-events: auto;
 }
 
-#visualizer,
-#visualizerCanvas,
-#experience canvas {
-    position: absolute;
-    inset: 0;
+#lights
+{
+    display: block;
 
     width: 100%;
     height: 100%;
-
-    display: block;
 }
 
-
-/* Experience UI */
-
-.experience-controls,
-.controls {
+.caption
+{
     position: absolute;
 
-    left: 50%;
-    bottom: 30px;
+    top: 28px;
+    left: 28px;
 
-    transform: translateX(-50%);
+    font-size: 12px;
+    letter-spacing: 0.14em;
 
-    display: flex;
-    align-items: center;
-    gap: 16px;
-
-    z-index: 10;
+    color: #999;
 }
 
-.experience-caption,
-.caption {
-    position: absolute;
-
-    left: 30px;
-    bottom: 30px;
-
-    color: rgba(255, 255, 255, 0.7);
-
-    font-size: 13px;
-    letter-spacing: 0.02em;
-
-    z-index: 10;
-}
-
-.exit,
-.exit-button,
-#exitExperience {
+.exit
+{
     position: absolute;
 
     top: 24px;
     right: 24px;
 
-    z-index: 20;
+    padding: 10px 24px;
 
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    color: #ccc;
 
-    width: 42px;
-    height: 42px;
+    border: 1px solid #444;
+    border-radius: 30px;
 
-    border-radius: 50%;
-
-    cursor: pointer;
-
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-
-    transition:
-        background 200ms ease,
-        transform 200ms ease;
+    background: transparent;
 }
 
-.exit:hover,
-.exit-button:hover,
-#exitExperience:hover {
-    background: rgba(255, 255, 255, 0.18);
-    transform: scale(1.05);
+.controls
+{
+    position: absolute;
+
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 16px;
+
+    color: #bbb;
+    font-size: 13px;
 }
 
+.controls button
+{
+    padding: 7px 16px;
 
-/* =========================
-   MOBILE
-   ========================= */
+    color: #ddd;
 
-@media (max-width: 760px) {
+    border: 1px solid #444;
+    border-radius: 30px;
 
-    main {
-        min-height: auto;
-        padding: 80px 35px;
+    background: transparent;
+}
+
+.controls button:disabled
+{
+    opacity: 0.4;
+    cursor: wait;
+}
+
+.controls label
+{
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    white-space: nowrap;
+}
+
+#gentle
+{
+    accent-color: #b2a4cd;
+}
+
+@media (max-width: 600px)
+{
+    main
+    {
+        padding: 48px 22px;
     }
 
-    .records,
-    .record-grid,
-    .sound-grid {
+    .sound-heading
+    {
+        margin-bottom: 48px;
+    }
+
+    .records
+    {
         grid-template-columns: 1fr;
-
-        width: min(310px, 100%);
-
-        gap: 70px;
+        gap: 20px;
     }
 
-    .vinyl,
-    .record,
-    .record-disc {
-        max-width: 280px;
+    .record
+    {
+        max-width: 340px;
+        margin: auto;
     }
 
+    .caption
+    {
+        left: 20px;
+    }
+
+    .controls
+    {
+        left: 16px;
+        right: 16px;
+    }
 }
 
-
-/* =========================
-   REDUCED MOTION
-   ========================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+@media (prefers-reduced-motion: reduce)
+{
+    .record,
+    .vinyl
+    {
+        transition: none;
     }
 
+    .record:hover .vinyl
+    {
+        transform: none;
+    }
+
+    #experience
+    {
+        transition-duration: 0.2s;
+    }
 }
