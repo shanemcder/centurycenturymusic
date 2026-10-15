@@ -2,49 +2,12 @@ const grid = document.getElementById('album-grid');
 const status = document.getElementById('album-status');
 
 async function findAlbum(entry) {
-  const normalize = text =>
-    String(text || "")
-      .toLowerCase()
-      .replace(/&/g, "and")
-      .replace(/[^a-z0-9]/g, "");
-
-  const term = `${entry.artist} ${entry.album}`;
-
-  const url = `https://itunes.apple.com/search?${new URLSearchParams({
-    term,
-    media: "music",
-    entity: "album",
-    country: "US",
-    limit: "100"
-  })}`;
-
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error("Apple Music search failed");
-  }
-
+  const term = `${entry.artist} ${entry.album}`.trim();
+  const params = new URLSearchParams({ term, entity: 'album', limit: '25' });
+  const response = await fetch(`https://itunes.apple.com/search?${params}`);
+  if (!response.ok) throw new Error(`Apple Music search failed: ${response.status}`);
   const data = await response.json();
-
-  const albums = data.results || [];
-
-  const wantedArtist = normalize(entry.artist);
-  const wantedAlbum = normalize(entry.album);
-
-  const matches = albums.filter(result => {
-    const artist = normalize(result.artistName);
-    const album = normalize(result.collectionName);
-
-    return (
-      artist === wantedArtist &&
-      (
-        album === wantedAlbum ||
-        album.startsWith(wantedAlbum)
-      )
-    );
-  });
-
-  return matches[0] || null;
+  return data.results?.find(result => result.wrapperType === 'collection' || result.collectionType === 'Album') ?? data.results?.[0] ?? null;
 }
 
 function createCard(entry, result) {
