@@ -1,20 +1,12 @@
-# Century Century
+# Century Century — restored and updated
 
-Static GitHub Pages website. The homepage and Products page remain unchanged; Blog now includes an introduction and album recommendations.
+Based on the website you uploaded, with the original software release assets recovered from its Git history. The site is static and ready for GitHub Pages.
 
-## Add an album
+- Home: original floating logo and navigation; Products renamed Software.
+- Blog: temporary Coming Soon screen (old albums.js and album-render.js retained, not loaded).
+- Software: original screenshots and downloadable source archives recovered; ChordPalette, TempoLock, Patina. Includes a collection ZIP. Synthesizer and DAW Companion are marked Coming Soon.
+- CenterSpace is not listed as downloadable because no verified release or screenshot was present in the archive's history.
+- Existing CNAME, audio files, and unrelated assets preserved.
+- Git metadata excluded intentionally; copy these files into your existing GitHub repository rather than replacing its .git folder.
 
-Open `albums.js` and add entries between the square brackets:
-
-```js
-const recommendedAlbums = [
-  { artist: "Nicolas Jaar", album: "Space Is Only Noise", note: "A record I keep coming back to." },
-  { artist: "The Strokes", album: "Is This It" },
-];
-```
-
-The blog searches Apple's public iTunes album catalog in the visitor's browser, retrieves cover art and release years, and links the covers to Apple Music. This requires internet access. If an album is missing or the catalog is unavailable, a neutral placeholder appears instead of incorrect cover art. Check ambiguous album titles and deluxe/reissue editions for a correct match.
-
-## Publish
-
-Copy all files and the `assets` directory into the local GitHub Pages repository. Preserve the existing `CNAME` file. Commit and push via GitHub Desktop. Visit `blog.html` to see the journal.
+**Important:** The ZIPs are source releases from the original historical commit, not guaranteed ready-to-install plugin binaries.
