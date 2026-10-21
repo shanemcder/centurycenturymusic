@@ -1,115 +1,93 @@
-:root{font-family:Arial,Helvetica,sans-serif;color:#191919;background:#f1f0ed;font-synthesis:none}*{box-sizing:border-box}body{margin:0;min-height:100vh}a{color:inherit;text-decoration:none}a:focus-visible{outline:1px solid #555;outline-offset:7px}.nav{display:flex;justify-content:center;align-items:center;gap:clamp(24px,5vw,76px);padding:42px 18px 0}.nav a{font-size:11px;letter-spacing:.2em;text-transform:uppercase;transition:opacity .2s}.nav a:hover,.nav a[aria-current=page]{opacity:.45}.home{min-height:calc(100svh - 90px);display:grid;place-items:center;padding:0 24px 10vh}.home img{display:block;width:min(850px,85vw);height:auto}.inner{max-width:880px;margin:0 auto;padding:clamp(90px,12vw,150px) 26px 110px}.eyebrow{text-transform:uppercase;font-size:11px;letter-spacing:.22em;color:#777;margin-bottom:18px}h1{font-size:clamp(46px,8vw,90px);font-weight:400;letter-spacing:-.075em;line-height:1;margin:0 0 22px}p{font-size:15px;line-height:1.8;color:#666}.rule{border:0;border-top:1px solid #c9c8c4;margin:48px 0 28px}.post{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;padding:24px 0;border-bottom:1px solid #d2d0cb}.post h2{font-size:25px;font-weight:400;letter-spacing:-.04em;margin:0 0 8px}.post p{margin:0}.post time{font-size:11px;letter-spacing:.1em;color:#777;white-space:nowrap}.back{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:45px}.article{max-width:660px}.article h1{font-size:clamp(40px,7vw,70px)}.article p{font-size:17px;color:#343434}.article a{text-decoration:underline;text-underline-offset:3px}.soon{min-height:calc(100svh - 90px);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:40px;text-align:center}.soon h1{font-size:clamp(50px,9vw,110px)}.footer{position:fixed;bottom:24px;width:100%;text-align:center;color:#999;font-size:10px;letter-spacing:.17em;pointer-events:none}@media(max-width:600px){.nav{gap:27px;padding-top:32px}.nav a{font-size:10px}.home{min-height:calc(100svh - 70px);padding-bottom:7vh}.home img{width:95vw}.post{grid-template-columns:1fr}.post time{order:-1}.footer{bottom:16px}}
+/* Century Century — plain starting point
+   Add your own design here. No decorative effects or animation. */
 
-/* Centered landing composition */
-body.landing{background:#e5e4eb;min-height:100svh;display:grid;place-items:center;overflow-x:hidden}
-.centerpiece{width:min(92vw,900px);display:flex;flex-direction:column;align-items:center;gap:clamp(12px,2vw,24px);transform:translateY(-2%)}
-.floating-nav{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:0 2.8%}
-.floating-nav a{font-size:clamp(23px,4.7vw,57px);line-height:1.05;letter-spacing:-.055em;font-weight:400;text-transform:lowercase;white-space:nowrap;transition:opacity .2s}
-.floating-nav a:hover{opacity:.5}
-.center-logo{display:block;width:100%;height:auto}
-@media(max-width:600px){.centerpiece{width:94vw;gap:14px}.floating-nav{padding:0 2%;gap:8px}.floating-nav a{font-size:clamp(21px,6vw,35px)}}
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+  background: #fff;
+}
 
-/* Smaller, gently drifting homepage composition */
-body.landing{background:#e5e4eb;overflow:hidden}
-.centerpiece{width:min(64.4vw,630px);gap:clamp(9px,1.4vw,17px);transform:none;animation:century-drift 9s ease-in-out infinite alternate;will-change:transform}
-.floating-nav{padding:0 2.8%}
-.floating-nav a{font-size:clamp(17px,3.29vw,40px)}
-@keyframes century-drift{0%{transform:translate3d(-5px,7px,0) rotate(-.25deg)}50%{transform:translate3d(5px,-7px,0) rotate(.18deg)}100%{transform:translate3d(-2px,3px,0) rotate(-.12deg)}}
-@media(max-width:600px){.centerpiece{width:86vw;gap:12px}.floating-nav a{font-size:clamp(17px,5vw,28px)}}
-@media(prefers-reduced-motion:reduce){.centerpiece{animation:none}}
+* { box-sizing: border-box; }
 
-/* Shared centered layout for the blog and plugins pages */
-body.landing.inner-page{display:block;overflow-x:hidden;overflow-y:auto}
-.inner-page .hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:60px 0 90px}
-.inner-page .centerpiece{animation:century-drift 9s ease-in-out infinite alternate;flex-shrink:0}
-.inner-page .centerpiece>a{display:block;width:100%}
-.inner-page .floating-nav a[aria-current="page"]{opacity:.48}
-.coming-soon{margin-top:42px;color:#fff;font-size:clamp(24px,4vw,48px);font-weight:400;letter-spacing:-.045em;text-align:center}
-.scroll-hint{position:absolute;bottom:35px;left:0;right:0;text-align:center;color:#666;font-size:12px;letter-spacing:.04em}
-.scroll-hint span{margin-left:7px}
-.plugin-section{background:#e5e4eb;padding:70px 24px 130px}
-.plugin-wrap{width:min(740px,100%);margin:0 auto}
-.plugin-wrap h1{font-size:clamp(42px,7vw,76px);font-weight:400;letter-spacing:-.07em;margin:0 0 12px}
-.plugin-intro{margin:0 0 44px;color:#555}
-.plugin-catalog{display:flex;flex-direction:column;gap:0}
-.plugin{padding:34px 0;border-top:1px solid #bcbac2;display:flex;flex-direction:column;gap:12px}
-.plugin:last-child{border-bottom:1px solid #bcbac2}
-.plugin-top{display:flex;justify-content:space-between;gap:16px;align-items:center}
-.plugin-type,.status{font-size:11px;letter-spacing:.06em;color:#666}
-.plugin h2{font-size:clamp(28px,5vw,43px);font-weight:400;letter-spacing:-.05em;margin:4px 0 0}
-.plugin p{font-size:15px;line-height:1.65;color:#555;max-width:540px;margin:0}
-.plugin-footer{margin-top:9px}
-.download{display:inline-block;font-size:13px;padding:12px 19px;border:1px solid #555;border-radius:3px;transition:background .2s,color .2s}
-a.download:hover{background:#191919;color:#fff}
-.download[aria-disabled="true"]{opacity:.5;cursor:default}
-@media(max-width:600px){.inner-page .hero{padding:50px 0 80px}.plugin-section{padding:45px 24px 90px}.plugin{padding:28px 0}.coming-soon{margin-top:32px}}
-@media(prefers-reduced-motion:reduce){.inner-page .centerpiece{animation:none}}
+body {
+  margin: 0;
+  line-height: 1.5;
+}
 
-/* Logo-to-heading navigation transition */
-.centerpiece .hero-heading-link{width:100%;display:flex;justify-content:center;align-items:center;min-height:clamp(100px,21vw,260px)}
-.hero-heading{font-size:clamp(76px,15vw,190px);font-weight:400;letter-spacing:-.085em;line-height:1;margin:0;color:#191919;text-transform:lowercase}
-.centerpiece .center-logo,.centerpiece .hero-heading{transition:opacity .32s ease,filter .32s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
-body.page-leaving .center-logo,body.page-leaving .hero-heading{opacity:0;filter:blur(8px);transform:scale(.94)}
-body.page-entering .center-logo,body.page-entering .hero-heading{animation:century-arrive .58s cubic-bezier(.2,.7,.2,1) both}
-@keyframes century-arrive{from{opacity:0;filter:blur(8px);transform:scale(1.06)}to{opacity:1;filter:blur(0);transform:scale(1)}}
-/* Heading is centered where the original floating logo appeared */
-.inner-page .centerpiece{animation:none}
-.inner-page .hero{min-height:100svh}
-.plugin-wrap h2#plugin-heading{font-size:clamp(35px,6vw,64px);font-weight:400;letter-spacing:-.06em;margin:0 0 12px}
-@media(prefers-reduced-motion:reduce){.centerpiece .center-logo,.centerpiece .hero-heading{transition:none}body.page-entering .center-logo,body.page-entering .hero-heading{animation:none}}
+a { color: inherit; }
 
-/* Compact inner pages: heading centered with content immediately below */
-body.landing.inner-page.compact-page{display:block;overflow-x:hidden;overflow-y:auto;min-height:100svh}
-.compact-page .compact-intro{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(52px,11vh,110px) 20px 20px}
-.compact-page .centerpiece{width:min(64.4vw,630px);gap:clamp(9px,1.4vw,17px);animation:none;transform:none}
-.compact-page .centerpiece .hero-heading-link{min-height:0;padding:14px 0 0}
-.compact-page .hero-heading{font-size:clamp(68px,12vw,148px)}
-.compact-page .intro-subtext{margin:12px 0 0;color:#555;font-size:clamp(13px,1.5vw,16px);line-height:1.6;text-align:center;transition:opacity .32s ease,filter .32s ease,transform .45s ease}
-.compact-page .plugin-section{padding:clamp(18px,3vh,32px) 24px 100px;background:transparent}
-.compact-page .plugin{padding:25px 0}
-body.page-leaving .intro-subtext{opacity:0;filter:blur(8px);transform:translateY(7px)}
-body.page-entering .intro-subtext{animation:century-subtext-arrive .65s .08s both}
-@keyframes century-subtext-arrive{from{opacity:0;filter:blur(8px);transform:translateY(12px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
-@media(max-width:600px){.compact-page .compact-intro{padding:clamp(65px,12vh,100px) 12px 12px}.compact-page .centerpiece{width:86vw}.compact-page .hero-heading{font-size:clamp(64px,17vw,100px)}.compact-page .plugin-section{padding:20px 22px 70px}}
-@media(prefers-reduced-motion:reduce){.compact-page .intro-subtext{transition:none}body.page-entering .intro-subtext{animation:none}}
+img { display: block; max-width: 100%; height: auto; }
 
-/* Shared spacing for the Software and Blog headings */
-.compact-page:is(.plugins-page,.blog-page) .compact-intro{padding-top:clamp(100px,19vh,205px);padding-bottom:clamp(48px,8vh,88px)}
-.compact-page:is(.plugins-page,.blog-page) .centerpiece{gap:clamp(55px,10vh,105px)}
-.compact-page:is(.plugins-page,.blog-page) .centerpiece .hero-heading-link{padding:0}
-.compact-page:is(.plugins-page,.blog-page) .intro-subtext{max-width:590px;margin:clamp(28px,5vh,48px) auto 0;padding:0 16px;font-size:clamp(15px,1.65vw,18px);line-height:1.8;color:#45434b;text-wrap:pretty}
-.compact-page:is(.plugins-page,.blog-page) .plugin-section{padding-top:clamp(16px,3vh,34px)}
-@media(max-width:600px){.compact-page:is(.plugins-page,.blog-page) .compact-intro{padding-top:clamp(95px,16vh,145px);padding-bottom:44px}.compact-page:is(.plugins-page,.blog-page) .centerpiece{gap:clamp(55px,9vh,85px)}.compact-page:is(.plugins-page,.blog-page) .intro-subtext{margin-top:30px;padding:0 20px;font-size:15px}}
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 20px 0;
+}
 
-/* Software and Blog: smaller centered headings, generous whitespace, larger introductions */
-.compact-page:is(.plugins-page,.blog-page) .compact-intro{padding-top:clamp(115px,22vh,245px);padding-bottom:clamp(60px,10vh,115px)}
-.compact-page:is(.plugins-page,.blog-page) .centerpiece{gap:clamp(76px,13vh,145px)}
-.compact-page:is(.plugins-page,.blog-page) .centerpiece .hero-heading-link{width:100%;justify-content:center}
-.compact-page:is(.plugins-page,.blog-page) .hero-heading{font-size:clamp(45px,6vw,78px);letter-spacing:-.06em;text-align:center}
-.compact-page:is(.plugins-page,.blog-page) .intro-subtext{max-width:760px;margin:clamp(52px,9vh,95px) auto 0;padding:0 20px;font-size:clamp(19px,2.15vw,25px);line-height:1.7;color:#45434b;text-align:center}
-.compact-page:is(.plugins-page,.blog-page) .plugin-section{padding-top:clamp(25px,5vh,55px)}
-@media(max-width:600px){.compact-page:is(.plugins-page,.blog-page) .compact-intro{padding-top:clamp(115px,19vh,175px);padding-bottom:55px}.compact-page:is(.plugins-page,.blog-page) .centerpiece{gap:clamp(65px,11vh,100px)}.compact-page:is(.plugins-page,.blog-page) .hero-heading{font-size:clamp(43px,10vw,62px)}.compact-page:is(.plugins-page,.blog-page) .intro-subtext{margin-top:55px;padding:0 15px;font-size:19px;line-height:1.65}}
+.site-header nav {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
 
-/* Collection download, using the existing Software page typography */
-.collection-download{margin:0 0 42px;padding:32px 0 38px;border-top:1px solid #bcbac2;border-bottom:1px solid #bcbac2;text-align:center}
-.collection-download .collection-eyebrow{margin:0 0 13px;color:#666;font-size:11px;line-height:1.4;letter-spacing:.12em}
-.collection-download h2{margin:0 0 15px;font-size:clamp(28px,4.5vw,40px);font-weight:400;line-height:1.15;letter-spacing:-.045em}
-.collection-download p{margin:0 auto 24px;max-width:580px;font-size:16px;line-height:1.7;color:#555}
-.collection-download .download{padding:14px 25px}
-.collection-download .download-note{margin:20px auto 0;max-width:520px;font-size:13px;line-height:1.7;color:#666}
-@media(max-width:600px){.collection-download{margin-bottom:30px;padding:27px 0 30px}.collection-download p{font-size:15px}.plugin-top{align-items:flex-start}.plugin-type,.status{line-height:1.5}.status{text-align:right}}
+.site-header nav a {
+  font-size: 15px;
+  text-decoration: none;
+}
 
-/* Actual interface screenshots beside each software name */
-.plugins-page .plugin-wrap{width:min(960px,100%)}
-.plugins-page .plugin{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,340px);gap:38px;align-items:center;padding:38px 0}
-.plugin-copy{min-width:0;display:flex;flex-direction:column;gap:12px}
-.plugin-screenshot{margin:0;min-width:0}
-.plugin-screenshot a{display:block;border-radius:9px;transition:transform .2s ease}
-.plugin-screenshot a:hover{transform:translateY(-3px)}
-.plugin-screenshot img{display:block;width:100%;height:auto;border:1px solid #bcbac2;border-radius:9px;box-shadow:0 8px 24px #19191912}
-.plugin-screenshot figcaption{margin-top:10px;text-align:center;font-size:11px;line-height:1.5;color:#666}
-@media(max-width:700px){.plugins-page .plugin{grid-template-columns:1fr;gap:24px;padding:32px 0}.plugin-screenshot{width:min(420px,100%);justify-self:center}.plugin-top{gap:16px}}
-@media(prefers-reduced-motion:reduce){.plugin-screenshot a{transition:none}.plugin-screenshot a:hover{transform:none}}
+.site-header nav a:hover,
+.site-header nav a[aria-current="page"] {
+  text-decoration: underline;
+}
 
-/* Upcoming software: no download links until releases exist */
-.upcoming-software{margin:clamp(65px,10vh,115px) auto 70px;padding-top:27px;border-top:1px solid #bcbac2}.upcoming-kicker{font-size:11px!important;letter-spacing:.15em;color:#777!important;margin:0 0 12px!important}.upcoming-software>h2{font-size:clamp(32px,5vw,48px);font-weight:400;letter-spacing:-.06em;margin:0 0 27px}.upcoming-project{display:flex;justify-content:space-between;gap:25px;align-items:start;border-top:1px solid #bcbac2;padding:28px 0}.upcoming-project h3{font-size:clamp(25px,3vw,34px);font-weight:400;letter-spacing:-.05em;margin:0 0 8px}.upcoming-project p{max-width:560px;line-height:1.65;margin:0;font-size:16px;color:#555}.upcoming-status{white-space:nowrap;font-size:12px;color:#777;border:1px solid #bcbac2;border-radius:50px;padding:9px 14px}.blog-page .compact-intro{min-height:100svh;display:flex;flex-direction:column;justify-content:center}.blog-page .intro-subtext{font-size:clamp(25px,4vw,40px)!important;color:#fff!important;letter-spacing:-.05em;margin-top:42px!important}.blog-page .compact-intro{padding-bottom:12vh}@media(max-width:650px){.upcoming-project{flex-direction:column;gap:16px}}
+.logo {
+  display: block;
+  width: min(340px, 75vw);
+}
+
+.logo img { width: 100%; }
+
+main {
+  width: min(900px, calc(100% - 40px));
+  margin: 60px auto 100px;
+}
+
+h1, h2 { font-weight: 400; }
+h1 { margin: 0 0 30px; font-size: 36px; }
+h2 { margin: 0 0 12px; font-size: 25px; }
+
+.page-home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page-home .site-header { padding: 0 20px; }
+.page-home .logo { width: min(570px, 82vw); }
+.page-home main { margin: 0; }
+
+.page-blog main { text-align: center; }
+
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+  padding: 30px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.project img { width: 100%; }
+.project-details .version { color: #555; font-size: 14px; }
+.upcoming { margin-top: 60px; }
+.upcoming ul { padding-left: 20px; }
+.upcoming li { margin: 8px 0; }
+
+@media (max-width: 600px) {
+  .site-header nav { gap: 20px; }
+  main { margin-top: 40px; }
+  .project { grid-template-columns: 1fr; }
+}

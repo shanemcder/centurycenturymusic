@@ -1,12 +1,24 @@
-# Century Century — restored and updated
+# Century Century — minimal foundation
 
-Based on the website you uploaded, with the original software release assets recovered from its Git history. The site is static and ready for GitHub Pages.
+This is a deliberately plain version of your site. It uses Arial, a white background, basic layout and hyperlinks, and no animation or visual effects.
 
-- Home: original floating logo and navigation; Products renamed Software.
-- Blog: temporary Coming Soon screen (old albums.js and album-render.js retained, not loaded).
-- Software: original screenshots and downloadable source archives recovered; ChordPalette, TempoLock, Patina. Includes a collection ZIP. Synthesizer and DAW Companion are marked Coming Soon.
-- CenterSpace is not listed as downloadable because no verified release or screenshot was present in the archive's history.
-- Existing CNAME, audio files, and unrelated assets preserved.
-- Git metadata excluded intentionally; copy these files into your existing GitHub repository rather than replacing its .git folder.
+## Edit the design
+- `styles.css` — all styling is in this one file
+- `index.html` — homepage
+- `blog.html` — Coming Soon
+- `software.html` — screenshots, source-code downloads and project headings
 
-**Important:** The ZIPs are source releases from the original historical commit, not guaranteed ready-to-install plugin binaries.
+Search for `ADD YOUR` in `software.html` to find commented locations to write your own descriptions. No placeholder marketing copy appears on the site.
+
+## Preserved working assets
+- Original Century Century logo (`assets/century-century-logo.png`)
+- Original screenshots for ChordPalette, TempoLock and Patina
+- All three source-code download ZIP files and the complete source collection
+- `CNAME` for `centurycenturymusic.com`
+- Music link to your TestPressing profile
+- Legacy `plugins.html` and `products.html` links redirect to `software.html`
+
+## Publishing
+Copy this folder's contents (not the enclosing folder) into your existing GitHub Pages repository, preserving the `.git` directory already there. Review in GitHub Desktop, commit and push when ready. Back up your repository first.
+
+The downloaded plugin archives are source projects, not installable macOS plugins.
